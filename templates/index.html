@@ -1,0 +1,40 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename='img/working-cafe-9.jpg')}})">>
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Remote Working Cafes</h1>
+            <span class="subheading">A collection of Working Places for you.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+      <div class="container">
+        <div class="row">
+          {% for cafe in all_cafes %}
+           <div class="col-lg-4 mt-4">
+               <div class="card" style="width:18rem;">
+                  <div class="card-header">
+                       <a href="{{ url_for('show_cafe', cafe_id=cafe.id) }}">
+                            <img src="{{cafe.img_url}}" alt="no img" width="160" height="145" />
+                            <h6 class="card-title">{{cafe.name}}</h6>
+                            <h6 class="card-title">{{cafe.location}}</h6>
+                        </a>
+                  </div>
+               </div>
+           </div>
+           {% endfor %}
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+{% include "footer.html" %}
